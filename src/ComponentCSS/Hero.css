@@ -1,0 +1,72 @@
+.HeroWrapper {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+}
+
+
+.MainBackGround {
+    background-image: url(/public/MainBackImg.jpg);
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+    filter: blur(12px);
+}
+
+.AboveBlur {
+    position: absolute;
+    top: 80px;
+    display: flex;
+    justify-content: space-between;
+    height: calc(100% - 80px);
+    width: 100%;
+    padding: 5rem 10rem;
+    z-index: 2;
+}
+
+.CharacterInfo {
+    height: 100%;
+    width: 50%;
+    padding-top: 25px;
+}
+
+/* .CharacterInfo h1 {
+    width: 543.6px;
+}
+
+.CharacterInfo h1 span {
+    white-space: nowrap;
+} */
+
+.CharacterInfo h1 {
+    display: inline-block;
+    font-family: var(--Font2);
+    font-size: 10rem;
+    line-height: 9rem;
+    letter-spacing: 10px;
+}
+
+.CharacterInfo p {
+    margin-top: 3rem;
+}
+
+.CharacterInfo p span {
+    font-family: var(--Font2);
+    font-weight: 500;
+    letter-spacing: 1.2px;
+    font-size: 1.7rem;
+    line-height: 1.8rem;
+}
+
+.CharacterImage {
+    height: 100%;
+    width: 50%;
+    display: flex;
+    align-items: top;
+    justify-content: end;
+}

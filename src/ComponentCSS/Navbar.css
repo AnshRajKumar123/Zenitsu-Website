@@ -1,0 +1,47 @@
+nav {
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    height: 80px;
+    width: 100%;
+    background-color: rgba(232, 183, 85, 0.601);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 30px;
+    overflow: hidden;
+    backdrop-filter: blur(5px);
+}
+
+.FirstLine h1 {
+    font-family: var(--Font2);
+    font-size: 2.4rem;
+    letter-spacing: 1px;
+    font-weight: 900;
+    cursor: pointer;
+}
+
+.LastLine {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+}
+
+.LastLine h4 {
+    font-weight: 900;
+    letter-spacing: 1px;
+    font-size: 1.9rem;
+    font-family: var(--Font2);
+    cursor: pointer;
+}
+
+#HomeHeroSection {
+    padding-top: 80px;
+}
+
+
+.LastLine h4.active {
+    color: gold;
+    text-shadow: 0 0 5px orange;
+}
