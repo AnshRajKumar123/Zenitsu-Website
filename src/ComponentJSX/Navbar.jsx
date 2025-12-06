@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import '../ComponentCSS/Navbar.css'
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
 
@@ -62,7 +63,9 @@ const Navbar = () => {
                     His Team
                 </h4>
 
-                <h4>Download</h4>
+                <Link to='https://aniterest.vercel.app/explore/zenitsu_img' target='blank'>
+                    <h4>Download</h4>
+                </Link>
             </div>
         </nav>
     );
