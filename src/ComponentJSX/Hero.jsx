@@ -13,7 +13,7 @@ const Hero = () => {
                     <h1 className="HeroTitle">Zenitsu Agatsuma</h1>
                     <p className='HeroHeading'>
                         Zenitsu Agatsuma is a cowardly yet kind-hearted Demon Slayer who often panics and fears death.
-                        Despite his timid nature, he possesses incredible potential when unconscious, becoming calm and deadly.
+                        Despite his timid nature, he light possesses incredible potential when unconscious, becoming calm and deadly.
                         He wields the Thunder Breathing style, mastering only the First Form: Thunderclap and Flash.
                     </p>
                 </div>
