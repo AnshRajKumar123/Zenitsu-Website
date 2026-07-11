@@ -1,30 +1,62 @@
 import React from 'react'
 import '../ComponentCSS/Hero.css'
 import { Eternity } from '../assets/assests'
+import { heroData } from '../assets/assests'
 
 const Hero = () => {
+
     return (
-        <div className='HeroWrapper'>
-            <div className="MainBackGround"></div>
+        <section className='HeroWrapper'>
+            {/* Cinematic Blurred Background + Dark Lightning Overlay */}
+            <div className="MainBackGround">
+                <div className="LightningOverlay"></div>
+            </div>
 
             <div className="AboveBlur">
 
+                {/* ⚡ Left Column: Kinetic Typography Deck */}
                 <div className="CharacterInfo">
-                    <h1 className="HeroTitle">Zenitsu Agatsuma</h1>
-                    <p className='HeroHeading'>
-                        Zenitsu Agatsuma is a cowardly yet kind-hearted Demon Slayer who often panics and fears death.
-                        Despite his timid nature, he possesses incredible potential when unconscious, becoming calm and deadly.
-                        He wields the Thunder Breathing style, mastering only the First Form: Thunderclap and Flash.
-                    </p>
+                    <div className="ThunderBadge">
+                        <i className="ri-flashlight-fill"></i>
+                        <span>{heroData.badge}</span>
+                    </div>
+
+                    <h1 className="HeroTitle">
+                        <span className="FirstName">{heroData.firstName}</span>
+                        <span className="LastName">{heroData.lastName}</span>
+                    </h1>
+
+                    <div className="DescWrapper">
+                        <p>{heroData.description}</p>
+                    </div>
+
+                    <button className="ThunderBtn">
+                        {heroData.cta} <i className="ri-arrow-right-up-line"></i>
+                    </button>
                 </div>
 
+                {/* ⚡ Right Column: Dynamic Character Showcase */}
                 <div className="CharacterImage">
-                    <img className="ZenitsuImg" src={Eternity.ZentisuPhoto} />
+                    {/* Concentric Charging Energy Rings */}
+                    <div className="LightningRing RingOuter"></div>
+                    <div className="LightningRing RingInner"></div>
+
+                    {/* 🌟 Dynamic PNG Lightning Matrix Layers */}
+                    <div className="PngLightningContainer">
+                        <img src={Eternity.LightningAsset1} className="FlashLightning LightTrack-A" alt="" />
+                        <img src={Eternity.LightningAsset2} className="FlashLightning LightTrack-B" alt="" />
+                    </div>
+
+                    {/* Focal Breathing Aura Center Core */}
+                    <div className="AuraGlow"></div>
+
+                    {/* Floating Main Character Sprite */}
+                    <img className="ZenitsuImg" src={Eternity.ZentisuPhoto} alt="Zenitsu Agatsuma" />
                 </div>
 
             </div>
-        </div>
+        </section>
     )
 }
 
-export default Hero
+export default Hero;

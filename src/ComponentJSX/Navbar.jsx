@@ -1,12 +1,11 @@
-import React, { useEffect, useState } from 'react'
-import '../ComponentCSS/Navbar.css'
+import React, { useEffect, useState } from 'react';
+import '../ComponentCSS/Navbar.css';
 import { Link } from "react-router-dom";
+import { navLinks } from '../assets/assests'
 
 const Navbar = () => {
-
     const [active, setActive] = useState("HomeHeroSection");
 
-    // Scroll to section when clicking nav item
     const handleScroll = (id) => {
         const element = document.getElementById(id);
         if (element) {
@@ -24,8 +23,7 @@ const Navbar = () => {
                 if (!element) return;
 
                 const top = element.getBoundingClientRect().top;
-
-                if (top <= 150 && top >= -300) {
+                if (top <= 120 && top >= -350) {
                     setActive(sec);
                 }
             });
@@ -36,36 +34,37 @@ const Navbar = () => {
     }, []);
 
     return (
-        <nav>
-            <div className="FirstLine">
-                <h1>Zenitsu Agatsuma</h1>
+        <nav className="ZenNavCanvas">
+            <div className="NavBrandCore" onClick={() => handleScroll("HomeHeroSection")}>
+                <h1>Zenitsu Agatsuma <span>⚡</span></h1>
             </div>
 
-            <div className="LastLine">
-                <h4
-                    className={active === "HomeHeroSection" ? "active" : ""}
-                    onClick={() => handleScroll("HomeHeroSection")}
-                >
-                    Home
-                </h4>
+            <div className="NavLinksTrack">
+                {navLinks.map((item, idx) => {
+                    if (item.isExternal) {
+                        return (
+                            <Link 
+                                key={idx} 
+                                to={item.path} 
+                                target="_blank" 
+                                rel="noreferrer"
+                                className="ExternalDownloadToken"
+                            >
+                                {item.label} <i className="ri-arrow-right-up-line"></i>
+                            </Link>
+                        );
+                    }
 
-                <h4
-                    className={active === "AboutFirstSection" ? "active" : ""}
-                    onClick={() => handleScroll("AboutFirstSection")}
-                >
-                    About
-                </h4>
-
-                <h4
-                    className={active === "TeamInfoSection" ? "active" : ""}
-                    onClick={() => handleScroll("TeamInfoSection")}
-                >
-                    His Team
-                </h4>
-
-                <Link to='https://aniterest.vercel.app/explore/zenitsu_img' target='blank'>
-                    <h4>Download</h4>
-                </Link>
+                    return (
+                        <span
+                            key={idx}
+                            className={`NavLinkItem ${active === item.targetId ? "navActive" : ""}`}
+                            onClick={() => handleScroll(item.targetId)}
+                        >
+                            {item.label}
+                        </span>
+                    );
+                })}
             </div>
         </nav>
     );

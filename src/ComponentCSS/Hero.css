@@ -1,72 +1,455 @@
+/* ⚡ Core Theme Variables ⚡ */
+:root {
+    --thunder-yellow: #FFD700;
+    --dark-bg: #050505;
+    --text-light: #F4F4F5;
+}
+
 .HeroWrapper {
     position: relative;
-    height: 100vh;
+    min-height: 100vh;
     width: 100%;
+    overflow: hidden;
+    background-color: var(--dark-bg);
+    display: flex;
+    align-items: center;
 }
 
-
+/* ⚡ Background Optics & Overlays ⚡ */
 .MainBackGround {
-    background-image: url(/public/MainBackImg.jpg);
-    height: 100vh;
-    width: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
+    position: absolute;
+    top: -5%;
+    left: -5%;
+    width: 110%;
+    height: 110%;
+    background-image: url('/public/MainBackImg.jpg');
     background-size: cover;
     background-position: center;
-    z-index: -1;
-    filter: blur(12px);
+    filter: blur(15px);
+    z-index: 1;
 }
 
-.AboveBlur {
+.LightningOverlay {
     position: absolute;
-    top: 80px;
-    display: flex;
-    justify-content: space-between;
-    height: calc(100% - 80px);
+    top: 0;
+    left: 0;
     width: 100%;
-    padding: 5rem 10rem;
+    height: 100%;
+    /* Creates a dark gradient that fades into a subtle electric tint at the bottom */
+    background: linear-gradient(135deg, rgba(5, 5, 5, 0.92) 0%, rgba(5, 5, 5, 0.7) 60%, rgba(255, 215, 0, 0.08) 100%);
     z-index: 2;
 }
 
+/* ⚡ Main Layout Grid Engine ⚡ */
+.AboveBlur {
+    position: relative;
+    z-index: 10;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    height: 100%;
+    width: 100%;
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 5rem 5rem 2rem;
+    align-items: center;
+    gap: 4rem;
+}
+
+/* ⚡ Typography & Content Deck ⚡ */
 .CharacterInfo {
-    height: 100%;
-    width: 50%;
-    padding-top: 25px;
-}
-
-/* .CharacterInfo h1 {
-    width: 543.6px;
-}
-
-.CharacterInfo h1 span {
-    white-space: nowrap;
-} */
-
-.CharacterInfo h1 {
-    display: inline-block;
-    font-family: var(--Font2);
-    font-size: 10rem;
-    line-height: 9rem;
-    letter-spacing: 10px;
-}
-
-.CharacterInfo p {
-    margin-top: 3rem;
-}
-
-.CharacterInfo p span {
-    font-family: var(--Font2);
-    font-weight: 500;
-    letter-spacing: 1.2px;
-    font-size: 1.7rem;
-    line-height: 1.8rem;
-}
-
-.CharacterImage {
-    height: 100%;
-    width: 50%;
     display: flex;
-    align-items: top;
-    justify-content: end;
+    flex-direction: column;
+    justify-content: center;
+    padding-right: 2rem;
+}
+
+.ThunderBadge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 215, 0, 0.08);
+    border: 1px solid rgba(255, 215, 0, 0.25);
+    padding: 8px 18px;
+    border-radius: 50px;
+    width: fit-content;
+    margin-bottom: 2rem;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.05);
+}
+
+.ThunderBadge i {
+    color: var(--thunder-yellow);
+    font-size: 1.2rem;
+}
+
+.ThunderBadge span {
+    color: var(--thunder-yellow);
+    font-family: var(--Font2), sans-serif;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+}
+
+/* Cinematic Name Stacking */
+.HeroTitle {
+    font-family: var(--Font2), sans-serif;
+    text-transform: uppercase;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    line-height: 0.9;
+}
+
+.FirstName {
+    font-size: clamp(4rem, 7.5vw, 9rem);
+    font-weight: 900;
+    color: var(--text-light);
+    text-shadow: 0 0 40px rgba(255, 215, 0, 0.15);
+}
+
+.LastName {
+    font-size: clamp(3.5rem, 6.5vw, 8rem);
+    font-weight: 900;
+    color: transparent;
+    -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.3);
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0) 80%);
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+.DescWrapper {
+    margin-top: 2.5rem;
+    border-left: 3px solid var(--thunder-yellow);
+    padding-left: 1.5rem;
+}
+
+.DescWrapper p {
+    font-family: var(--Font2), sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: rgba(244, 244, 245, 0.65);
+    max-width: 550px;
+    margin: 0;
+    font-weight: 400;
+}
+
+/* ⚡ Interactive Call to Action ⚡ */
+.ThunderBtn {
+    margin-top: 3.5rem;
+    background: var(--thunder-yellow);
+    color: #000;
+    font-family: var(--Font2), sans-serif;
+    font-weight: 800;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 1.1rem 2.5rem;
+    border: none;
+    border-radius: 6px;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 10px 25px rgba(255, 215, 0, 0.2);
+}
+
+.ThunderBtn i {
+    font-size: 1.3rem;
+    transition: transform 0.3s ease;
+}
+
+.ThunderBtn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 15px 40px rgba(255, 215, 0, 0.35);
+    background: #fff;
+}
+
+.ThunderBtn:hover i {
+    transform: translate(3px, -3px);
+}
+
+/* 🌟 Main Character Stage Viewport 🌟 */
+.CharacterImage {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    margin-top: 4rem;
+    margin-left: 4rem;
+}
+
+/* 🌟 Concentric Staggered Energy Rings 🌟 */
+.LightningRing {
+    position: absolute;
+    border-radius: 50%;
+    border: 2px dashed rgba(255, 215, 0, 0.3);
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.05), inset 0 0 30px rgba(255, 215, 0, 0.05);
+    top: 50%;
+    left: 50%;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.RingOuter {
+    width: 480px;
+    height: 480px;
+    margin-top: -240px;
+    margin-left: -240px;
+    animation: spinClockwise 25s linear infinite;
+}
+
+.RingInner {
+    width: 340px;
+    height: 340px;
+    margin-top: -170px;
+    margin-left: -170px;
+    border: 1px dotted rgba(255, 255, 255, 0.15);
+    animation: spinCounterClockwise 15s linear infinite;
+}
+
+@keyframes spinClockwise {
+    from {
+        transform: rotate(0deg) scale(0.95);
+    }
+
+    to {
+        transform: rotate(360deg) scale(1.05);
+    }
+}
+
+@keyframes spinCounterClockwise {
+    from {
+        transform: rotate(360deg) scale(1.05);
+    }
+
+    to {
+        transform: rotate(0deg) scale(0.95);
+    }
+}
+
+/* 🌟 High-Velocity PNG Lightning Layer Matrix 🌟 */
+.PngLightningContainer {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    pointer-events: none;
+}
+
+.FlashLightning {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    mix-blend-mode: screen;
+    /* 🌟 Makes the lightning blend brilliantly with dark backdrops */
+    filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.6));
+    opacity: 0;
+}
+
+/* Staggered Electric Discharge Cycles */
+.LightTrack-A {
+    transform: rotate(15deg) scale(1);
+    animation: dischargeAlpha 1.4s ease-in-out infinite;
+}
+
+.LightTrack-B {
+    transform: rotate(-45deg) scale(1.1) scaleX(-1);
+    /* Flips layout horizontally to prevent overlapping identity */
+    animation: dischargeBeta 1.9s ease-in-out infinite 0.3s;
+}
+
+@keyframes dischargeAlpha {
+    0% {
+        opacity: 0;
+        transform: rotate(15deg) scale(0.9);
+    }
+
+    5% {
+        opacity: 1;
+        transform: rotate(18deg) scale(1.05);
+    }
+
+    10% {
+        opacity: 0.3;
+    }
+
+    15% {
+        opacity: 0.9;
+        transform: rotate(12deg) scale(1);
+    }
+
+    20% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes dischargeBeta {
+    0% {
+        opacity: 0;
+        transform: rotate(-45deg) scale(1) scaleX(-1);
+    }
+
+    7% {
+        opacity: 1;
+        transform: rotate(-42deg) scale(1.12) scaleX(-1);
+    }
+
+    12% {
+        opacity: 0;
+    }
+
+    25% {
+        opacity: 0.8;
+        transform: rotate(-48deg) scale(1.05) scaleX(-1);
+    }
+
+    30% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+/* 🌟 Ambient Core Breathing Glow 🌟 */
+.AuraGlow {
+    position: absolute;
+    width: 380px;
+    height: 380px;
+    background: radial-gradient(circle, rgba(255, 215, 0, 0.35) 0%, rgba(255, 184, 0, 0.08) 50%, transparent 70%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+    animation: corePulse 3s infinite alternate ease-in-out;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+@keyframes corePulse {
+    0% {
+        transform: translate(-50%, -50%) scale(0.85);
+        opacity: 0.6;
+        filter: blur(15px);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) scale(1.1);
+        opacity: 1;
+        filter: blur(30px);
+    }
+}
+
+/* Foreground Floating Character Sprite */
+.ZenitsuImg {
+    position: relative;
+    z-index: 10;
+    max-width: 100%;
+    max-height: 80vh;
+    object-fit: contain;
+    filter: drop-shadow(0 25px 40px rgba(0, 0, 0, 0.6));
+    animation: floatImg 6s ease-in-out infinite;
+}
+
+@keyframes floatImg {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-18px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+/* 🌟 Responsive Balancing 🌟 */
+@media (max-width: 1024px) {
+    .LightningRing {
+        display: none;
+    }
+
+    .PngLightningContainer {
+        width: 360px;
+        height: 360px;
+    }
+}
+
+/* ⚡ Responsive Corrections ⚡ */
+@media (max-width: 1024px) {
+    .LightningRing {
+        display: none;
+        /* Hide complex background loops on mobile to ensure zero frame lag */
+    }
+
+    .ThunderboltWeb {
+        width: 320px;
+        height: 420px;
+    }
+}
+
+/* ⚡ Responsive Breakpoints ⚡ */
+@media (max-width: 1024px) {
+    .AboveBlur {
+        grid-template-columns: 1fr;
+        padding: 8rem 3rem 4rem;
+        gap: 4rem;
+    }
+
+    .CharacterInfo {
+        padding-right: 0;
+        align-items: center;
+        text-align: center;
+    }
+
+    .DescWrapper {
+        border-left: none;
+        border-top: 3px solid var(--thunder-yellow);
+        padding-left: 0;
+        padding-top: 1.5rem;
+        display: flex;
+        justify-content: center;
+    }
+
+    .HeroTitle {
+        align-items: center;
+    }
+
+    .AuraGlow {
+        width: 300px;
+        height: 400px;
+    }
+}
+
+@media (max-width: 640px) {
+    .AboveBlur {
+        padding: 6rem 1.5rem 2rem;
+    }
+
+    .ThunderBadge span {
+        font-size: 0.7rem;
+    }
+
+    .DescWrapper p {
+        font-size: 1rem;
+    }
+
+    .ThunderBtn {
+        padding: 1rem 2rem;
+    }
 }
