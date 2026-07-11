@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import '../ComponentCSS/Navbar.css';
 import { Link } from "react-router-dom";
-import { navLinks } from '../assets/assests'
+import { navLinks } from '../assets/assests';
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
 
 const Navbar = () => {
     const [active, setActive] = useState("HomeHeroSection");
@@ -43,10 +45,10 @@ const Navbar = () => {
                 {navLinks.map((item, idx) => {
                     if (item.isExternal) {
                         return (
-                            <Link 
-                                key={idx} 
-                                to={item.path} 
-                                target="_blank" 
+                            <Link
+                                key={idx}
+                                to={item.path}
+                                target="_blank"
                                 rel="noreferrer"
                                 className="ExternalDownloadToken"
                             >

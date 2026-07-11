@@ -1,19 +1,28 @@
 import React from 'react'
 import '../ComponentCSS/Hero.css'
 import { Eternity, heroData } from '../assets/assests'
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
 
 const Hero = () => {
 
+    useGSAP(() => {
+        gsap.to(".HeroTitle", {
+            textShadow: "0 0 20px #ffdd55, 0 0 40px #ffaa00",
+            repeat: -1,
+            yoyo: true,
+            duration: 1.2,
+            ease: "power1.inOut"
+        });
+    });
+
     return (
         <section className='HeroWrapper'>
-            {/* Cinematic Blurred Background + Dark Lightning Overlay */}
             <div className="MainBackGround">
                 <div className="LightningOverlay"></div>
             </div>
 
             <div className="AboveBlur">
-
-                {/* ⚡ Left Column: Kinetic Typography Deck */}
                 <div className="CharacterInfo">
                     <div className="ThunderBadge">
                         <i className="ri-flashlight-fill"></i>
@@ -34,25 +43,18 @@ const Hero = () => {
                     </button>
                 </div>
 
-                {/* ⚡ Right Column: Dynamic Character Showcase */}
                 <div className="CharacterImage">
-                    {/* Concentric Charging Energy Rings */}
                     <div className="LightningRing RingOuter"></div>
                     <div className="LightningRing RingInner"></div>
 
-                    {/* 🌟 Dynamic PNG Lightning Matrix Layers */}
                     <div className="PngLightningContainer">
                         <img src={Eternity.LightningAsset1} className="FlashLightning LightTrack-A" alt="" />
                         <img src={Eternity.LightningAsset2} className="FlashLightning LightTrack-B" alt="" />
                     </div>
 
-                    {/* Focal Breathing Aura Center Core */}
                     <div className="AuraGlow"></div>
-
-                    {/* Floating Main Character Sprite */}
                     <img className="ZenitsuImg" src={Eternity.ZentisuPhoto} alt="Zenitsu Agatsuma" />
                 </div>
-
             </div>
         </section>
     )
