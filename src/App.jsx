@@ -9,7 +9,6 @@ const App = () => {
   return (
     <>
       <Navbar />
-      <AnimationSector />
       <Cursor />
       <Routes>
         <Route path='/' element={<Home />} />

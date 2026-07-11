@@ -11,12 +11,20 @@ import Cursor from './Cursor'
 const Home = () => {
     return (
         <div className="ZenitsuLandingApp">
-            <Cursor />
-            <Navbar />
-            <div id="HomeHeroSection"><Hero /></div>
-            <div id="AboutFirstSection"><About /></div>
+            <div id="HomeHeroSection">
+                <Hero />
+            </div>
+
+            <div id="AboutFirstSection">
+                <About />
+            </div>
+
             <div><ZenitsuSword /></div>
-            <div id="TeamInfoSection"><TeamInfo /></div>
+
+            <div id="TeamInfoSection">
+                <TeamInfo />
+            </div>
+            
             <div><ThunderBreathing /></div>
         </div>
     )
