@@ -1,59 +1,200 @@
-.AboutSet {
-    height: 100vh;
-    width: 100vw;
-    background-color: rgb(232, 183, 85);
-    margin-top: 0;
-    z-index: 100;
-    border-radius: 80px 80px 0 0;
-    padding: 50px;
+/* ⚡ About Page Canvas Settings ⚡ */
+.AboutMainCanvas {
+    background-color: #050505;
+    color: #F4F4F5;
+    font-family: var(--Font2), sans-serif;
+    padding: 8rem 4rem;
+    width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
 }
 
-.AboutSet h1 {
+/* ⚡ Lore Branding Headings ⚡ */
+.AboutGlobalHeader {
     text-align: center;
-    padding-bottom: 30px;
-    font-family: var(--Font2);
-    font-size: 3rem;
-    letter-spacing: 1px;
+    margin-bottom: 8rem;
 }
 
-.AboutBoxStory {
+.ZenLoreTag {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #FFD700;
+    filter: drop-shadow(0 0 5px #FFD700);
+}
+
+.AboutGlobalHeader h2 {
+    font-family: var(--Font2), sans-serif;
+    font-size: 42px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -0.5px;
+    margin: 8px 0 0;
+}
+
+.LoreHeaderLine {
+    width: 60px;
+    height: 3px;
+    background-color: #FFD700;
+    box-shadow: 0 0 10px #FFD700;
+    margin: 1.5rem auto 0;
+}
+
+/* ⚡ Alternating Flow Matrix Rows ⚡ */
+.LoreChaptersContainer {
     display: flex;
-    height: 90%;
+    flex-direction: column;
+    gap: 10rem;
+    max-width: 1300px;
+    margin: 0 auto;
     width: 100%;
 }
 
-.Storyinfo {
-    width: 50%;
-    height: 100%;
-    display: flex;
+.LoreRowNode {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
     align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    padding-left: 30px;
-    padding-bottom: 50px;
 }
 
-.Storyinfo p {
-    font-size: 1.5rem;
-    font-family: var(--Font2);
-    letter-spacing: 1px;
+/* Switches image/text coordinates smoothly every other row */
+.InvertedRow .LoreTextContent {
+    grid-column: 2;
 }
 
-.Storyinfo p b {
-    font-family: var(--Font2);
-    font-weight: 900;
-    text-decoration: underline;
+.InvertedRow .LoreImageShowcase {
+    grid-column: 1;
+    grid-row: 1;
 }
 
-.ImageBoxAbout {
-    width: 50%;
+/* ⚡ Content & Typographic Details ⚡ */
+.ChapterTag {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: rgba(255, 215, 0, 0.6);
+}
+
+.LoreTextContent h3 {
+    font-size: 36px;
+    font-weight: 800;
+    margin: 8px 0 1.5rem;
+    color: #fff;
+    letter-spacing: -0.5px;
+}
+
+.LoreTextContent p {
+    font-size: 16px;
+    line-height: 1.8;
+    color: rgba(244, 244, 245, 0.65);
+    text-align: justify;
+    margin: 0;
+}
+
+/* ⚡ Dynamic Visual Frame System ⚡ */
+.LoreImageShowcase {
+    position: relative;
+    width: 100%;
+    height: 380px;
+}
+
+.LoreGlassFrame {
+    position: relative;
+    width: 100%;
     height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-left: 30px;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 215, 0, 0.15);
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(10px);
+    z-index: 5;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.5);
 }
 
-.ImageBoxAbout img {
-    width: 24rem;
+.LoreGlassFrame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+/* Decorative Lightning Ambient Box Glow Behind Images */
+.ElectricAccentBackground {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    width: 100%;
+    height: 100%;
+    border-radius: 16px;
+    border: 1px dashed rgba(255, 215, 0, 0.3);
+    z-index: 2;
+    pointer-events: none;
+    transition: transform 0.4s ease;
+}
+
+/* Development helper text layer */
+.ImageGuideTooltip {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: rgba(5, 5, 5, 0.85);
+    border: 1px solid #FFD700;
+    padding: 6px 12px;
+    font-size: 11px;
+    border-radius: 6px;
+    color: #FFD700;
+    font-weight: 600;
+    z-index: 10;
+    pointer-events: none;
+}
+
+/* ⚡ Interactive Animations ⚡ */
+.LoreRowNode:hover .LoreGlassFrame img {
+    transform: scale(1.03);
+}
+
+.LoreRowNode:hover .ElectricAccentBackground {
+    transform: translate(-6px, -6px);
+}
+
+/* 🌟 Fluid Mobile Adjustments 🌟 */
+@media (max-width: 992px) {
+    .AboutMainCanvas {
+        padding: 6rem 2rem;
+    }
+
+    .LoreRowNode {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .InvertedRow .LoreTextContent,
+    .InvertedRow .LoreImageShowcase {
+        grid-column: auto;
+        grid-row: auto;
+    }
+
+    .LoreChaptersContainer {
+        gap: 6rem;
+    }
+
+    .LoreImageShowcase {
+        height: 320px;
+    }
+}
+
+@media (max-width: 640px) {
+    .AboutGlobalHeader h2 {
+        font-size: 32px;
+    }
+
+    .LoreTextContent h3 {
+        font-size: 28px;
+    }
+
+    .LoreImageShowcase {
+        height: 260px;
+    }
 }

@@ -1,7 +1,6 @@
 import React from 'react'
 import '../ComponentCSS/Hero.css'
-import { Eternity } from '../assets/assests'
-import { heroData } from '../assets/assests'
+import { Eternity, heroData } from '../assets/assests'
 
 const Hero = () => {
 

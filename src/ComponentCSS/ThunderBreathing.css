@@ -1,0 +1,292 @@
+/* ⚡ Master Breathing Section Base Canvas ⚡ */
+.BreathingSectionCanvas {
+    background-color: #050505;
+    color: #F4F4F5;
+    font-family: var(--Font2), sans-serif;
+    padding: 8rem 4rem;
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+    border-top: 1px solid rgba(255, 215, 0, 0.05);
+}
+
+/* ⚡ Typography Headings ⚡ */
+.BreathingHeaderBlock {
+    text-align: center;
+    margin-bottom: 5rem;
+}
+
+.BreathingTag {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #FFD700;
+    filter: drop-shadow(0 0 4px #FFD700);
+}
+
+.BreathingHeaderBlock h2 {
+    font-family: var(--Font2), sans-serif;
+    font-size: 42px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -0.5px;
+    margin: 8px 0 0;
+}
+
+.BreathingHeaderLine {
+    width: 60px;
+    height: 3px;
+    background-color: #FFD700;
+    box-shadow: 0 0 10px #FFD700;
+    margin: 1.5rem auto;
+}
+
+.BreathingHeaderBlock p {
+    font-size: 16px;
+    color: rgba(244, 244, 245, 0.6);
+    max-width: 650px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* ⚡ Split Navigation Layout Grid ⚡ */
+.BreathingCatalogGrid {
+    display: grid;
+    grid-template-columns: 0.95fr 1.05fr;
+    gap: 5rem;
+    max-width: 1300px;
+    margin: 0 auto;
+    width: 100%;
+    align-items: start;
+}
+
+/* ⚡ Left Side Menu Select Tracks ⚡ */
+.FormsSelectorTrack {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.FormSelectNode {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.01);
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    padding: 1.2rem 1.8rem;
+    border-radius: 14px;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.FormNodeNum {
+    font-size: 18px;
+    font-weight: 800;
+    color: rgba(244, 244, 245, 0.2);
+    margin-right: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+.FormNodeMeta h4 {
+    font-size: 16px;
+    font-weight: 700;
+    margin: 0 0 2px;
+    color: rgba(244, 244, 245, 0.85);
+    transition: color 0.3s ease;
+}
+
+.FormNodeMeta span {
+    font-size: 11px;
+    font-weight: 500;
+    color: rgba(244, 244, 245, 0.4);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.nodeBoltIcon {
+    position: absolute;
+    right: 24px;
+    font-size: 20px;
+    color: #FFD700;
+    opacity: 0;
+    transform: scale(0.7) rotate(-20deg);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Node Hover Triggers */
+.FormSelectNode:hover:not(.nodeSelected) {
+    background: rgba(255, 255, 255, 0.03);
+    border-color: rgba(255, 255, 255, 0.1);
+    transform: translateX(4px);
+}
+
+/* Node Active Click States */
+.FormSelectNode.nodeSelected {
+    background: rgba(255, 215, 0, 0.04);
+    border-color: rgba(255, 215, 0, 0.3);
+    box-shadow: 0 8px 25px rgba(255, 215, 0, 0.05);
+    transform: translateX(8px);
+}
+
+.nodeSelected .FormNodeNum {
+    color: #FFD700;
+}
+
+.nodeSelected .FormNodeMeta h4 {
+    color: #fff;
+}
+
+.nodeSelected .nodeBoltIcon {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+    filter: drop-shadow(0 0 8px #FFD700);
+}
+
+/* ⚡ Right Side Terminal Display Stage ⚡ */
+.FormDisplayPanelStage {
+    position: relative;
+    width: 100%;
+    position: sticky;
+    top: 120px;
+}
+
+.DisplayPanelGlass {
+    position: relative;
+    width: 100%;
+    border-radius: 24px;
+    border: 1px solid rgba(255, 215, 0, 0.15);
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding: 3.5rem;
+    box-sizing: border-box;
+    z-index: 5;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+    animation: textPanelFade 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes textPanelFade {
+    from {
+        transform: translateY(15px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.DisplayTag {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #FFD700;
+}
+
+.DisplayNameMain {
+    font-size: 38px;
+    font-weight: 900;
+    margin: 8px 0 2px;
+    color: #fff;
+    letter-spacing: -0.5px;
+    line-height: 1.1;
+}
+
+.DisplayKanji {
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: rgba(244, 244, 245, 0.4);
+    letter-spacing: 1px;
+}
+
+.DisplayPanelDivider {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(to right, rgba(255, 215, 0, 0.2) 0%, transparent 100%);
+    margin: 2rem 0;
+}
+
+.DisplayDescText {
+    font-size: 16px;
+    line-height: 1.8;
+    color: rgba(244, 244, 245, 0.7);
+    text-align: justify;
+    margin: 0 0 2.5rem;
+}
+
+.DisplayFooterMetrics {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 1.2rem;
+    border-radius: 12px;
+}
+
+.MetricLabel {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: rgba(244, 244, 245, 0.4);
+    display: block;
+    margin-bottom: 4px;
+}
+
+.MetricValueText {
+    font-size: 15px;
+    font-weight: 700;
+    color: #FFD700;
+    margin: 0;
+}
+
+/* Glowing electric blur layer */
+.DisplayPanelAuraBackdrop {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 80%;
+    height: 80%;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(circle, rgba(255, 215, 0, 0.12) 0%, transparent 70%);
+    filter: blur(40px);
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* 🌟 Fluid Mobile Optimization Engine 🌟 */
+@media (max-width: 992px) {
+    .BreathingSectionCanvas {
+        padding: 6rem 2rem;
+    }
+
+    .BreathingCatalogGrid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .FormDisplayPanelStage {
+        position: relative;
+        top: 0;
+    }
+
+    .DisplayPanelGlass {
+        padding: 2.5rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .BreathingHeaderBlock h2 {
+        font-size: 32px;
+    }
+
+    .DisplayNameMain {
+        font-size: 28px;
+    }
+
+    .FormSelectNode {
+        padding: 1rem 1.2rem;
+    }
+}

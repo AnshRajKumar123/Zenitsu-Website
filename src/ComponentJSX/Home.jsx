@@ -1,8 +1,8 @@
 import React from 'react'
 import Hero from './Hero'
 import About from './About'
-import About2 from './About2'
-import Hero2 from './Hero2'
+import ZenitsuSword from './ZenitsuSword'
+import TeamInfo from './TeamInfo'
 
 const Home = () => {
     return (
@@ -15,12 +15,12 @@ const Home = () => {
                 <About />
             </section>
 
-            <section id='AboutSecondSection'>
-                <About2 />
+            <section id='Zenitsu Sword Section'>
+                <ZenitsuSword />
             </section>
 
             <section id='TeamInfoSection'>
-                <Hero2 />
+                <TeamInfo />
             </section>
         </>
     )

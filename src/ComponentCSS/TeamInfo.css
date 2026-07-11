@@ -1,0 +1,216 @@
+/* ⚡ Master Team Container Base ⚡ */
+.TeamSectionCanvas {
+    background-color: #050505;
+    color: #F4F4F5;
+    font-family: var(--Font2), sans-serif;
+    padding: 8rem 4rem;
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+    border-top: 1px solid rgba(255, 215, 0, 0.05);
+}
+
+/* ⚡ Roster Global Headings ⚡ */
+.TeamGlobalHeader {
+    text-align: center;
+    margin-bottom: 6rem;
+}
+
+.TeamTagLine {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #FFD700;
+    filter: drop-shadow(0 0 4px #FFD700);
+}
+
+.TeamGlobalHeader h2 {
+    font-family: var(--Font2), sans-serif;
+    font-size: 42px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -0.5px;
+    margin: 8px 0 0;
+}
+
+.TeamHeaderLine {
+    width: 60px;
+    height: 3px;
+    background-color: #FFD700;
+    box-shadow: 0 0 10px #FFD700;
+    margin: 1.5rem auto 0;
+}
+
+/* ⚡ Sequential Layout Card List ⚡ */
+.TeamRosterContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.TeamMemberCard {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 4rem;
+    background: rgba(255, 255, 255, 0.01);
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    border-radius: 24px;
+    padding: 3rem;
+    align-items: center;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ⚡ Left Column Meta Deck Styles ⚡ */
+.MemberInfoDeck {
+    display: flex;
+    flex-direction: column;
+}
+
+.MemberIndex {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: rgba(255, 215, 0, 0.5);
+}
+
+.MemberName {
+    font-size: 44px;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: #fff;
+    margin: 4px 0 1.2rem;
+    letter-spacing: -1px;
+}
+
+.MemberBadgeGroup {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 1.5rem;
+}
+
+.MemberBadge {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 6px 14px;
+    border-radius: 6px;
+}
+
+.MemberBadge.role {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(244, 244, 245, 0.85);
+}
+
+.MemberBadge.bond {
+    background: rgba(255, 215, 0, 0.08);
+    border: 1px solid rgba(255, 215, 0, 0.2);
+    color: #FFD700;
+}
+
+.MemberDesc {
+    font-size: 15.5px;
+    line-height: 1.75;
+    color: rgba(244, 244, 245, 0.6);
+    text-align: justify;
+    margin: 0;
+}
+
+/* ⚡ Right Column Visual Frame Deck ⚡ */
+.MemberVisualStage {
+    position: relative;
+    width: 100%;
+    height: 320px;
+}
+
+.MemberGlassWrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    z-index: 5;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.MemberGlassWrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Subtle underlying aura glow */
+.MemberElectricAura {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255, 215, 0, 0.08) 0%, transparent 70%);
+    z-index: 2;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    opacity: 0.5;
+}
+
+/* Dev environment asset alignment banner */
+.MemberImageGuide {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: rgba(5, 5, 5, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 6px 12px;
+    font-size: 10.5px;
+    border-radius: 6px;
+    color: rgba(244, 244, 245, 0.8);
+    font-weight: 600;
+    z-index: 10;
+    pointer-events: none;
+}
+
+/* ⚡ Micro Interactive Card Responses ⚡ */
+.TeamMemberCard:hover {
+    background: rgba(255, 255, 255, 0.02);
+    border-color: rgba(255, 215, 0, 0.1);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+}
+
+.TeamMemberCard:hover .MemberGlassWrapper img {
+    transform: scale(1.03);
+}
+
+.TeamMemberCard:hover .MemberElectricAura {
+    opacity: 1;
+}
+
+/* 🌟 Fluid Viewport Scaling Engine 🌟 */
+@media (max-width: 992px) {
+    .TeamSectionCanvas {
+        padding: 6rem 2rem;
+    }
+    .TeamMemberCard {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        padding: 2rem;
+    }
+    .MemberVisualStage {
+        height: 280px;
+        grid-row: 1; /* Pushes image above description metrics dynamically on tablets */
+    }
+}
+
+@media (max-width: 640px) {
+    .TeamGlobalHeader h2 { font-size: 32px; }
+    .MemberName { font-size: 32px; }
+    .MemberVisualStage { height: 220px; }
+}
